@@ -1,0 +1,27 @@
+---
+interface Props {
+  year: string;
+  events?: { title: string; href: string }[];
+}
+
+const { year, events = [] } = Astro.props;
+---
+
+<h1 class="page-title">Bilder {year}</h1>
+
+{events.length > 0 && (
+  <>
+    <p class="lead">Einzelne Ereignisse aus {year}:</p>
+    <ul class="plain">
+      {events.map((e) => (
+        <li><a href={e.href}>{e.title}</a></li>
+      ))}
+    </ul>
+  </>
+)}
+
+<div class="photo-placeholder">
+  Fotos folgen &mdash; hier kommen die Bilder von {year} rein, sobald sie vom Verein bereitgestellt werden.
+</div>
+
+<p><a href="/bilder/">&larr; Zurück zu Bilder & Mehr</a></p>

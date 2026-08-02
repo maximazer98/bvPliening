@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const years = ['2026', '2025', '2024', '2023', '2022', '2014'];
+---
+
+<Layout title="Bilder & Mehr">
+  <h1 class="page-title">Bilder & Mehr</h1>
+  <p class="lead">Eindrücke von unseren Festen und Umzügen, sortiert nach Jahr.</p>
+
+  <div class="card-grid">
+    {years.map((year) => (
+      <div class="card">
+        <h3 style="margin-top:0;"><a href={`/bilder/${year}/`}>{year}</a></h3>
+      </div>
+    ))}
+  </div>
+</Layout>

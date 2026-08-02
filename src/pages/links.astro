@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const links = [
+  { name: 'Gemeinde Pliening', url: 'http://www.pliening.de' },
+  { name: 'Musikkapelle Gelting', url: 'http://web.musikkapelle-gelting.de/WP/' },
+  { name: "Trachtenverein Gelting (Stoabergler)", url: 'https://www.stoabergler.de/' },
+  { name: "Dirndlverein D'Wuidn Bixn", url: 'http://www.dwuidnbixn.com' },
+  { name: 'Burschenverein Landsham', url: 'http://www.bv-landsham.de' },
+  { name: 'Burschenverein Finsing', url: 'http://www.bv-finsing.de' },
+  { name: 'Burschenverein Forstinning', url: 'http://www.bv-forstinning.de' },
+  { name: 'Burschenverein Kirchheim', url: 'http://www.bv-kirchheim.de/' },
+];
+---
+
+<Layout title="Links">
+  <h1 class="page-title">Links</h1>
+  <p class="lead">Befreundete Vereine und die Gemeinde Pliening.</p>
+
+  <ul class="plain">
+    {links.map((l) => (
+      <li><a href={l.url} target="_blank" rel="noopener">{l.name}</a></li>
+    ))}
+  </ul>
+</Layout>
