@@ -51,12 +51,34 @@ Quelle "GitHub Actions" ausgewählt sein.
 ### Eigene Domain (bv-pliening.de)
 
 Die Datei `public/CNAME` enthält bereits `bv-pliening.de`, damit GitHub Pages
-die eigene Domain verwendet. Damit das greift, müssen beim Domain-Registrar
-folgende DNS-Einträge gesetzt werden (siehe auch die
-[GitHub-Pages-Doku zu Custom Domains](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site)):
+die eigene Domain verwendet. Wichtig: Die Domain muss dafür **nicht**
+umgezogen oder neu registriert werden — sie bleibt beim aktuellen Registrar,
+nur die DNS-Einträge werden umgestellt, damit sie auf GitHub Pages statt auf
+den alten Server zeigt (siehe auch die
+[GitHub-Pages-Doku zu Custom Domains](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site)).
 
-- `A`-Records der Domain auf die GitHub-Pages-IPs, oder
-- `CNAME`-Record auf `<benutzername>.github.io`
+Wo genau man das einträgt, hängt vom aktuellen Provider ab (steht auf der
+Hosting-Rechnung, oder per WHOIS-Abfrage auf [webwhois.denic.de](https://webwhois.denic.de)
+herausfinden). Dort im DNS-Bereich der Domain folgende Einträge setzen:
+
+**Für die nackte Domain `bv-pliening.de`** — vier `A`-Records auf:
+
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+**Für `www.bv-pliening.de`** (optional) — ein `CNAME`-Record auf:
+
+```
+<github-benutzername>.github.io
+```
+
+Nach der Umstellung kann die DNS-Änderung bis zu 24–48 Stunden brauchen, bis
+sie überall wirkt. Am besten erst prüfen, dass die neue Seite über die Domain
+korrekt erreichbar ist, **bevor** der alte Hosting-Vertrag gekündigt wird.
 
 ## Nächste Schritte für den echten Umzug (nicht-technisch)
 
