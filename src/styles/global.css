@@ -6,8 +6,20 @@
   --color-green-dark: #2b4128;
   --color-brown: #6b4226;
   --color-red: #8c2f2f;
+  --color-gold: #c9972c;
+  --color-blue: #1c4f80;
   --color-border: #d8cbab;
   --max-width: 960px;
+}
+
+/* Rautenmuster (bayerisches Wappen-Muster) als dekorativer Streifen */
+.rauten-strip {
+  height: 10px;
+  background-image: repeating-linear-gradient(
+      45deg,
+      var(--color-blue) 0, var(--color-blue) 10px,
+      #fff 10px, #fff 20px
+    );
 }
 
 * {
@@ -33,6 +45,10 @@ h3 {
   font-family: Georgia, "Times New Roman", serif;
   color: var(--color-green-dark);
   line-height: 1.2;
+}
+
+h1 {
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -87,14 +103,19 @@ a:hover {
   color: #f1e9d8;
   text-decoration: none;
   font-size: 0.98rem;
-  padding: 0.2rem 0;
-  border-bottom: 2px solid transparent;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
+.site-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  border-bottom-color: var(--color-red);
+}
+
+.site-nav a[aria-current="page"] {
+  background: var(--color-red);
+  color: #fff;
 }
 
 /* Main content */
@@ -114,12 +135,58 @@ main {
   font-size: 1.1rem;
 }
 
+/* Hero (Startseite) */
+
+.hero {
+  background: linear-gradient(135deg, var(--color-green-dark), var(--color-green));
+  color: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-gold) 0, var(--color-gold) 8px,
+    transparent 8px, transparent 16px
+  );
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin: 0;
+  color: #f1e9d8;
+}
+
 .card {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-top: 4px solid var(--color-gold);
+  border-radius: 8px;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-grid .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(43, 65, 40, 0.15);
 }
 
 .card-grid {
@@ -163,15 +230,16 @@ ul.plain li {
   background: var(--color-red);
   color: #fff;
   font-size: 0.75rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 3px;
+  font-weight: bold;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
   margin-left: 0.5rem;
 }
 
 .photo-placeholder {
   background: var(--color-bg-alt);
   border: 2px dashed var(--color-border);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 2rem 1.5rem;
   text-align: center;
   color: var(--color-brown);

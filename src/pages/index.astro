@@ -2,19 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 
 const news = [
-  { title: 'Maibaum 2026', text: 'Fotos und Eindrücke vom Aufstellen unseres Maibaums 2026.' },
-  { title: 'Steckerlfisch 2026', text: 'Rückblick auf unser Steckerlfisch-Fest 2026.' },
-  { title: 'Maibaum Stüberl 2026', text: 'Eindrücke vom Maibaum Stüberl 2026.' },
-  { title: 'Maibaumaufstellen 2026', text: 'Der Maibaum steht wieder mitten im Dorf!' },
+  { icon: '🌳', title: 'Maibaum 2026', text: 'Fotos und Eindrücke vom Aufstellen unseres Maibaums 2026.' },
+  { icon: '🐟', title: 'Steckerlfisch 2026', text: 'Rückblick auf unser Steckerlfisch-Fest 2026.' },
+  { icon: '🍻', title: 'Maibaum Stüberl 2026', text: 'Eindrücke vom Maibaum Stüberl 2026.' },
+  { icon: '🎉', title: 'Maibaumaufstellen 2026', text: 'Der Maibaum steht wieder mitten im Dorf!' },
 ];
 ---
 
 <Layout title="Startseite">
-  <h1 class="page-title">Servus!</h1>
-  <p class="lead">Auf der Homepage des Burschenverein Pliening e.V.</p>
+  <div class="hero">
+    <h1>Servus! 👋</h1>
+    <p>Auf der Homepage des Burschenverein Pliening e.V.</p>
+  </div>
 
   <div class="card">
-    <strong>Plieninger Maibaum 2026!</strong>
+    <strong>🌳 Plieninger Maibaum 2026!</strong>
     <p style="margin-bottom:0;">Auch heuer hat unser Verein wieder den Maibaum fürs Dorf aufgestellt — schaut in der Galerie unter <a href="/bilder/">Bilder & Mehr</a> vorbei.</p>
   </div>
 
@@ -22,7 +24,7 @@ const news = [
   <div class="card-grid">
     {news.map((item) => (
       <div class="card">
-        <h3 style="margin-top:0;">{item.title}</h3>
+        <h3 style="margin-top:0;">{item.icon} {item.title}</h3>
         <p style="margin-bottom:0;">{item.text}</p>
       </div>
     ))}
@@ -31,7 +33,7 @@ const news = [
   <h2>Folgt uns</h2>
   <p>
     Schaut auf unserem Instagram-Kanal vorbei:
-    <a href="https://www.instagram.com/burschenverein_pliening" target="_blank" rel="noopener">@burschenverein_pliening</a>
+    <a href="https://www.instagram.com/burschenverein_pliening" target="_blank" rel="noopener">📷 @burschenverein_pliening</a>
   </p>
   <p>
     Fragen oder Anregungen? Schreibt uns an
