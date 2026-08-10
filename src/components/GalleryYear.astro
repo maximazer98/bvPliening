@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { year, events = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <h1 class="page-title">Bilder {year}</h1>
@@ -24,4 +25,4 @@ const { year, events = [] } = Astro.props;
   Fotos folgen &mdash; hier kommen die Bilder von {year} rein, sobald sie vom Verein bereitgestellt werden.
 </div>
 
-<p><a href="/bilder/">&larr; Zurück zu Bilder & Mehr</a></p>
+<p><a href={`${base}bilder/`}>&larr; Zurück zu Bilder & Mehr</a></p>

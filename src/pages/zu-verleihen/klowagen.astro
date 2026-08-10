@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Klowagen — Zu Verleihen">
@@ -18,5 +20,5 @@ import Layout from '../../layouts/Layout.astro';
     <a href="tel:+4915120798191">+49 151 20798191</a>.
   </p>
 
-  <p><a href="/zu-verleihen/">&larr; Zurück zu Zu Verleihen</a></p>
+  <p><a href={`${base}zu-verleihen/`}>&larr; Zurück zu Zu Verleihen</a></p>
 </Layout>

@@ -8,12 +8,14 @@ interface Props {
 
 const { title, description = 'Burschenverein Pliening e.V. — Verein für Brauchtum und Tradition in Pliening.' } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const navItems = [
-  { href: '/', label: 'Startseite' },
-  { href: '/zu-verleihen/', label: 'Zu Verleihen' },
-  { href: '/vorstandschaft/', label: 'Die Vorstandschaft' },
-  { href: '/bilder/', label: 'Bilder & Mehr' },
-  { href: '/links/', label: 'Links' },
+  { href: base, label: 'Startseite' },
+  { href: `${base}zu-verleihen/`, label: 'Zu Verleihen' },
+  { href: `${base}vorstandschaft/`, label: 'Die Vorstandschaft' },
+  { href: `${base}bilder/`, label: 'Bilder & Mehr' },
+  { href: `${base}links/`, label: 'Links' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -31,7 +33,7 @@ const currentPath = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-title" href="/">Burschenverein Pliening e.V.</a>
+        <a class="site-title" href={base}>Burschenverein Pliening e.V.</a>
         <nav class="site-nav" aria-label="Hauptnavigation">
           {navItems.map((item) => (
             <a
@@ -62,7 +64,7 @@ const currentPath = Astro.url.pathname;
         </div>
         <div class="footer-links">
           <a href="https://www.instagram.com/burschenverein_pliening" target="_blank" rel="noopener">Instagram</a>
-          <a href="/impressum/">Impressum & Datenschutz</a>
+          <a href={`${base}impressum/`}>Impressum & Datenschutz</a>
         </div>
       </div>
     </footer>

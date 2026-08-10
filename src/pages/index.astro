@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const news = [
   { title: 'Maibaum 2026', text: 'Fotos und Eindrücke vom Aufstellen unseres Maibaums 2026.' },
   { title: 'Steckerlfisch 2026', text: 'Rückblick auf unser Steckerlfisch-Fest 2026.' },
@@ -17,7 +19,7 @@ const news = [
 
   <div class="card">
     <strong>Plieninger Maibaum 2026!</strong>
-    <p style="margin-bottom:0;">Auch heuer hat unser Verein wieder den Maibaum fürs Dorf aufgestellt — schaut in der Galerie unter <a href="/bilder/">Bilder & Mehr</a> vorbei.</p>
+    <p style="margin-bottom:0;">Auch heuer hat unser Verein wieder den Maibaum fürs Dorf aufgestellt — schaut in der Galerie unter <a href={`${base}bilder/`}>Bilder & Mehr</a> vorbei.</p>
   </div>
 
   <h2>Aktuelles</h2>

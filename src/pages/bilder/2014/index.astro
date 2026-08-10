@@ -2,11 +2,13 @@
 import Layout from '../../../layouts/Layout.astro';
 import GalleryYear from '../../../components/GalleryYear.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const events = [
-  { title: 'Faschingswoag 2014', href: '/bilder/2014/faschingswoag/' },
-  { title: 'Maibaum zurückbringen Purfing 2014', href: '/bilder/2014/maibaum-zurueckbringen-purfing/' },
-  { title: 'Maibaumaufstellen Purfing 2014', href: '/bilder/2014/maibaumaufstellen-purfing/' },
-  { title: 'Maibaumstehlen Purfing 2014', href: '/bilder/2014/maibaumstehlen-purfing/' },
+  { title: 'Faschingswoag 2014', href: `${base}bilder/2014/faschingswoag/` },
+  { title: 'Maibaum zurückbringen Purfing 2014', href: `${base}bilder/2014/maibaum-zurueckbringen-purfing/` },
+  { title: 'Maibaumaufstellen Purfing 2014', href: `${base}bilder/2014/maibaumaufstellen-purfing/` },
+  { title: 'Maibaumstehlen Purfing 2014', href: `${base}bilder/2014/maibaumstehlen-purfing/` },
 ];
 ---
 

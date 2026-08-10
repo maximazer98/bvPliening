@@ -48,6 +48,19 @@ veröffentlicht (`.github/workflows/deploy.yml`), sobald auf `main` gepusht wird
 Damit das funktioniert, muss im GitHub-Repo unter **Settings → Pages** als
 Quelle "GitHub Actions" ausgewählt sein.
 
+### Vorschau-Unterpfad (nur temporär, vor dem echten Launch entfernen!)
+
+Solange `bv-pliening.de` noch nicht per DNS auf GitHub Pages zeigt, läuft die
+Vorschau unter `https://<user>.github.io/bvPliening/` — also einem
+Unterpfad statt der Domain-Wurzel. Damit interne Links dort trotzdem
+funktionieren, setzt der Workflow (`.github/workflows/deploy.yml`) beim Bauen
+die Umgebungsvariable `SITE_BASE: /bvPliening/`.
+
+**Wichtig:** Sobald die echte Domain live ist, muss dieser `env`-Block beim
+"Seite bauen"-Step in `deploy.yml` wieder entfernt werden (oder auf `/`
+gesetzt), sonst zeigen alle internen Links fälschlich auf
+`bv-pliening.de/bvPliening/...` statt auf die Domain-Wurzel.
+
 ### Eigene Domain (bv-pliening.de)
 
 Die Datei `public/CNAME` enthält bereits `bv-pliening.de`, damit GitHub Pages

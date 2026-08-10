@@ -32,6 +32,11 @@ jobs:
 
       - name: Seite bauen
         run: npm run build
+        env:
+          # Nur für die Vorschau auf github.io nötig, da die Seite dort
+          # unter einem Unterpfad läuft. Auf bv-pliening.de (eigene Domain)
+          # entfällt das automatisch, sobald diese Zeile entfernt wird.
+          SITE_BASE: /bvPliening/
 
       - name: Pages vorbereiten
         uses: actions/configure-pages@v5
