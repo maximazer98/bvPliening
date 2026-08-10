@@ -1,0 +1,18 @@
+---
+interface Props {
+  ratio?: string;
+  label?: string;
+}
+
+const { ratio = '4 / 3', label = 'Foto folgt' } = Astro.props;
+---
+
+<div class="ph-image" style={`aspect-ratio:${ratio};`}>
+  <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" role="presentation">
+    <rect width="400" height="300" fill="var(--color-bg-alt)" />
+    <circle cx="335" cy="65" r="26" fill="var(--color-gold)" opacity="0.55" />
+    <polygon points="0,300 0,190 85,105 165,195 235,130 320,215 400,160 400,300" fill="var(--color-green)" opacity="0.35" />
+    <polygon points="0,300 0,230 110,155 210,235 290,180 400,235 400,300" fill="var(--color-green-dark)" opacity="0.6" />
+  </svg>
+  {label && <span class="ph-label">{label}</span>}
+</div>
